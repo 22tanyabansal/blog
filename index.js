@@ -137,6 +137,4 @@ app.use(express.static(path.join(__dirname,'./client/build')));
 app.get("*",function(req,res){
   res.sendFile(path.join(__dirname,"./client/build/index.html"));
 })
-const PORT = process.env.PORT || 3000;
-app.listen(PORT,()=>{
-});
+app.listen(3000);
