@@ -23,8 +23,6 @@ mongoose.set('strictQuery', false);
 mongoose.connect('mongodb+srv://tanya:Qf2tc0X4BTzbOSro@cluster0.km8gxcq.mongodb.net/');
 app.post('/register', async (req,res) => {
   const {username,password} = req.body;
-  console.log(username);
-  console.log(password);
   try{
     const userDoc = await User.create({
       username,
@@ -32,7 +30,6 @@ app.post('/register', async (req,res) => {
     });
     res.json(userDoc);
   } catch(e) {
-    console.log(e);
     res.status(400).json(e);
   }
 });
@@ -142,5 +139,4 @@ app.get("*",function(req,res){
 })
 const PORT = process.env.PORT || 3000;
 app.listen(PORT,()=>{
-  console.log('Server is running at PORT no ${PORT}')
 });
